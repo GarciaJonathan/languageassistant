@@ -10,54 +10,101 @@
         <script src="{% static 'chatbot/index.js' %}"></script>
         <link rel="stylesheet" href="{% static 'chatbot/styles.css' %}">
 
-        <script> var model = "{% static 'chatbot/Jona.glb' %}"</script> 
-        <script> var hdri = "{% static 'chatbot/royal_esplanade_1k.hdr' %}"</script> 
-    
-        <script type="importmap">
-            {
-                "imports": {
-                    "three": "https://unpkg.com/three/build/three.module.js",
-            "three/addons/": "https://unpkg.com/three/examples/jsm/"
-                }
-            }
-        </script>
-        
-        <script type="module" src="{% static 'chatbot/character.js' %}"></script>
-
         <link rel="icon" href="data:,">
     </head> 
-    <body class="row"> 
-        <div class="options-view col-3">
+    <body> 
+        <div id="config-window" class="row m-0">
+            <div class="options-view col-12 col-xl-3">
 
-            <h2>OPTIONS</h2>
-            Base language:
-            <select class="form-select" name="Base Language" id="baseLanguage" >
-                
-                <option value="english" selected="selected">English</option>
-                <option value="spanish">Spanish</option>
-                <option value="german">German</option>
-            </select>
-            Target language:
-            <select class="form-select" name="Target Language" id="targetLanguage" >
-                
-                <option value="english">English</option>
-                <option value="spanish">Spanish</option>
-                <option value="german" selected="selected">German</option>
-            </select>
-        </div>
-        <div class="main-view col-6">
+                <h2>OPTIONS</h2>
+                Base language:
+                <select class="form-base-language button-interface" name="Base Language" id="baseLanguage" >
+                    
+                    <option value="en-EN" selected="selected">English</option>
+                    <option value="es-ES">Spanish</option>
+                    <option value="de-DE">German</option>
+                </select>
+                Target language:
+                <select class="form-target-language button-interface" name="Target Language" id="targetLanguage" >
+                    
+                    <option value="en-EN">English</option>
+                    <option value="es-ES">Spanish</option>
+                    <option value="de-DE" selected="selected">German</option>
+                </select>
+                Difficulty:
+                <select class="form-level button-interface" name="Level" id="level" >
+                    
+                    <option value="A1">Novice(A1)</option>
+                    <option value="A2">Beginner(A2)</option>
+                    <option value="B2" selected="selected">Intermediate(B1)</option>
+                    <option value="C1">Advanced(C1)</option>
+                    <option value="C2">Pro(C2)</option>
+                </select>
+            </div>
+            <div class="options-view col-12 col-xl-9">
+                <div class="auctions-grid">
+                    {% for setting in settings %}
+                        <div class="setting-item">
+                            <div class="image-container">
+                                <img src="{{setting.picture}}" alt="No Image">
+                            </div>
+                            
+                            <div style="margin-left: 10px;"><strong>{{setting.place}}</strong></div>
+                            <div style="display: none">{{setting.character}}</div>
+                            <div style="margin-left: 10px;">{{setting.description}}</div>
+                        </div>
+                    {% empty %}
+                        Nothing to see here
+                    {% endfor %}
+                </div>
+            </div>
 
-            <div id="chat-view"></div>
-
-            <form id="question-form" onsubmit="return false">
-                <textarea class="form-control" id="user-question" placeholder="Message" autofocus></textarea>
-                <!--<button class="btn btn-primary" id="ask-question">Send</button>-->
-            </form>
         </div>
         
-        <div class="character-view col-3">
+        <div id=chat-window class="row m-0">
+            <div class="col-12 col-xl-3 m-0 p-0">
+                <div class="info-view">
+                    <h3>Language</h3>
+                    <div class="sub">
+                        <strong>Interface: </strong>
+                        <a id="base-language">English</a><br>
+                        <strong>Learning: </strong> 
+                        <a id="target-language">German</a><br>
+                        <strong>Level: </strong>
+                        <a id="level-language">A2</a><br>
+                    </div>
+                    <h3>Setting</h3>
+                    <div class="sub">
+                        <strong>Place: </strong> 
+                        <a id="setting">Cafeteria</a><br>
+                        <strong>IA Character: </strong>
+                        <a id="character">Student</a><br>
+                        
+                        
+                    </div>
+                    <button class="go-to-config button-interface">Go to Options</button>
+                    <button class="button-interface" id="clear">Clear chat window</button>
+                </div>   
+            </div>
 
+            <div class="main-view col-12 col-xl-9">
+                
+                <div id="chat-capsule">
+                    
+                    <div id="chat-view">
+                        <button>Options</button>
+                    </div>
+                </div>
+                
+
+                <form id="question-form" onsubmit="return false">
+                    <textarea class="form-control" id="user-question" placeholder="Message" autofocus></textarea>
+                    <!--<button class="btn btn-primary" id="ask-question">Send</button>-->
+                </form>
+            </div>
+            
         </div>
+        
         
         <script>
             var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))

@@ -4,8 +4,11 @@ from django.http import JsonResponse
 from google import genai
 from django.views.decorators.csrf import csrf_exempt
 
+from .models import *
+
 def index(request):
     return render(request, "chatbot/index.html", {
+        "settings": Setting.objects.all(),
     })
 
 
@@ -17,6 +20,7 @@ def question(request):
     response = client.models.generate_content(
         model="gemini-2.0-flash",
         contents=data.get("question"),
+        config={"response_mime_type": "application/json",},
     )
 
     return JsonResponse([response.text], safe=False)
