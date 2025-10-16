@@ -15,21 +15,20 @@ This project is different from the other projects from the course because it's a
 ## Files:
 
 chatbot/static/chatbot:
--background.png: background image for the chat
--index.js: javascript for the project
--styles.css: css for the project
+- background.png: background image for the chat
+- index.js: javascript for the project
+- styles.css: css for the project
 
 chatbot/templates/chatbot:
--index.html: html for the project
+- index.html: html for the project
 
 chatbot:
 README.md: readme for the project
 requirements.txt: python packages required
-API_KEY.txt: this is where you have to put the API key provided in the submission
 
 ## How to Run:
--Install Gemini package
--Put api key in the API_KEY.txt
--Run the server
--Choose languages, complexity and setting
--Start chatting with the AI
+- Install Gemini package
+-Create local.env file containing the Gemini API key in the following format: GEMINI_API_KEY = key
+- Run the server
+- Choose languages, complexity and setting
+- Start chatting with the AI
