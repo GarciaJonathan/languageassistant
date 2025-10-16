@@ -1,0 +1,4 @@
+google-genai
+virtualenv
+django
+python-dotenv

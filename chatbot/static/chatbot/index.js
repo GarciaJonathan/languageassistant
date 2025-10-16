@@ -148,6 +148,7 @@ function create_bubble(container, content, parameter) {
         if (bubbleType=="translated-message"){
             tts(body,language_target_tts);
         }
+        
         chatBubble.style.width = widthBubble;
 
         if (parameter == "original") {chatBubble.style.display = "none"};

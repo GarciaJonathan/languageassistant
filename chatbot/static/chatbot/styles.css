@@ -13,8 +13,7 @@
 }
 
 body {
-    
-    background-color: rgb(210, 162, 255);
+    background-color: rgb(234, 212, 255);
     margin: 0;
     padding: 0;
 }
@@ -28,7 +27,6 @@ body {
 }
 
 .options-view {
-    
     padding: 0;
     margin: 0;
     display: flex;
@@ -73,8 +71,8 @@ body {
 .auctions-grid {
     margin: 2rem;
     display: grid;
-    grid-template-columns: repeat(4, 280px);
-    grid-gap: 2.5rem;
+    grid-template-columns: repeat(3, 20vw);
+    grid-gap: 3vw;
     grid-auto-rows: minmax(100px, auto);
 }
 
@@ -92,22 +90,23 @@ body {
 .setting-item {
     padding: 1rem;
     background-color: aliceblue;
+    border-radius: 1rem;
 }
 
 .setting-item:hover {
     cursor: pointer;
-    background-color: rgb(238, 218, 255);
+    background-color: rgba(191, 148, 230, 1);
 }
 
 .image-container {
-    width: 250px;
-    height: 250px;
+    width: 18vw;
+    height: 18vh;
     position: relative;
 }
 
 .image-container img {
-    width: 250px;
-    height: 250px;
+    width: 18vw;
+    height: 18vh;
     object-fit: cover;
 }
 
@@ -118,11 +117,18 @@ body {
     padding-left: 4rem;
 }
 
+@media (max-width: 1200px) {
+    #chat-view {
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+}
+
 #chat-capsule {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100dvh;
+    height: 90dvh;
     min-height: 10rem;
     background-image: url("background.png");
     background-repeat: repeat; 
@@ -130,6 +136,12 @@ body {
     background-blend-mode:soft-light;
     scrollbar-color: rgb(178, 95, 255) rgb(190, 145, 231);
     
+}
+
+@media (min-width: 1200px) {
+    #chat-capsule {
+        height: 100dvh;
+    }
 }
 
 .button-interface {
@@ -141,6 +153,20 @@ body {
     padding-bottom: 1rem;
     background-color: rgb(178, 95, 255);
     border-radius: 0.7rem;
+}
+
+.options-button {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+    height: 10dvh;
+    width: 100%;
+}
+
+@media (min-width: 1200px) {
+    .options-button {
+        display: none;
+    }
 }
 
 #clear {
@@ -189,6 +215,7 @@ h1,h2 {
     margin: 1rem;
     border-radius: 1rem;
     padding: 0.9rem;
+    max-width: 70%;
 }
 
 .bubble-container {
