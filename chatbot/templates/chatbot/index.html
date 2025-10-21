@@ -14,9 +14,10 @@
     </head> 
     <body> 
         <div id="config-window" class="row m-0">
-            <div class="options-view col-12 col-xl-3">
+            <div class="options-view col-12 col-xl-4">
 
-                <h2>OPTIONS</h2>
+                <h1>LANGUAGE LEARNER</h1>
+                <p style="font-size: 1rem; font-family: 'Poppins';">Just choose your options and select a setting!</p>
                 Base language:
                 <select class="form-base-language button-interface" name="Base Language" id="baseLanguage" >
                     
@@ -41,17 +42,15 @@
                     <option value="C2">Pro(C2)</option>
                 </select>
             </div>
-            <div class="options-view col-12 col-xl-9">
-                <div class="auctions-grid">
+            <div class="options-view col-12 col-xl-8">
+                <div class="settings-grid">
                     {% for setting in settings %}
-                        <div class="setting-item">
-                            <div class="image-container">
-                                <img src="{{setting.picture}}" alt="No Image">
+                        <div class="setting-item" style="background-image: url({{setting.picture}})">
+                            <div>
+                                <p><strong>{{setting.place}}</strong><br></p>
+                                <div style="display: none">{{setting.character}}</div>
+                                <p>{{setting.description}}</p>
                             </div>
-                            
-                            <div style="margin-left: 10px;"><strong>{{setting.place}}</strong></div>
-                            <div style="display: none">{{setting.character}}</div>
-                            <div style="margin-left: 10px;">{{setting.description}}</div>
                         </div>
                     {% empty %}
                         Nothing to see here

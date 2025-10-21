@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=BBH+Sans+Bogle&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 
 * {
     padding: 0;
@@ -13,9 +14,24 @@
 }
 
 body {
-    background-color: rgb(234, 212, 255);
+    background-color: rgb(255, 255, 255);
     margin: 0;
     padding: 0;
+    color: rgb(34, 34, 34);
+    font-family: 'Roboto'
+}
+
+#config-window {
+    display:flex;
+    align-items: center;
+    background: #c2a2e0;
+    background: linear-gradient(90deg,rgb(244, 232, 255), rgb(202, 146, 255));
+}
+
+@media (min-width: 1200px) {
+    #config-window {
+        height: 100vh;
+    }
 }
 
 .main-view {
@@ -68,16 +84,16 @@ body {
     border-radius: 1rem;
 }
 
-.auctions-grid {
+.settings-grid {
     margin: 2rem;
     display: grid;
-    grid-template-columns: repeat(3, 20vw);
-    grid-gap: 3vw;
+    grid-template-columns: repeat(3, 18vw);
+    grid-gap: 2vw;
     grid-auto-rows: minmax(100px, auto);
 }
 
 @media (max-width: 1200px) {
-.auctions-grid {
+.settings-grid {
     margin: 1rem;
     display: grid;
     grid-template-columns: 800px;
@@ -91,11 +107,23 @@ body {
     padding: 1rem;
     background-color: aliceblue;
     border-radius: 1rem;
+    background-size: cover;
+    
+}
+
+.setting-item div {
+    margin-top: 17vh;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: rgba(240, 248, 255, 0.397);
+    backdrop-filter: blur(6px);
+    
 }
 
 .setting-item:hover {
     cursor: pointer;
-    background-color: rgba(191, 148, 230, 1);
+    background-color: rgb(124, 124, 124);
+    background-blend-mode: lighten;
 }
 
 .image-container {
@@ -104,11 +132,7 @@ body {
     position: relative;
 }
 
-.image-container img {
-    width: 18vw;
-    height: 18vh;
-    object-fit: cover;
-}
+
 
 #chat-view {
     height: 88dvh;
@@ -193,9 +217,17 @@ body {
 }
 
 h1,h2 {
-    font-family: "Roboto";
+    font-family: 'Poppins';
+    font-weight: bold;
     margin: 2rem;
 }
+
+@media (max-width: 1200px){
+    h1{
+        font-size: 2rem;
+    }
+}
+
 
 #question-form {
     width: 95%;

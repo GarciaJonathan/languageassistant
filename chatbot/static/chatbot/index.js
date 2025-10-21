@@ -46,8 +46,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 localStorage.setItem("chatHistory", "");
                 
-                setting = button.children[1].children[0].innerHTML
-                character = button.children[2].innerHTML
+                setting = button.children[0].children[0].children[0].innerHTML
+                character = button.children[0].children[1].innerHTML
                 
                 load_chat_window();
                 
